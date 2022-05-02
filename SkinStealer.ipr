@@ -84,6 +84,9 @@
       <map />
     </option>
   </component>
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+  </component>
   <component name="libraryTable">
     <library name="Gradle: ca.weblite:java-objc-bridge:1.0.0">
       <CLASSES>
