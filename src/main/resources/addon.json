@@ -1,0 +1,10 @@
+{
+  "uuid": "%uuid%",
+  "name": "SkinStealer",
+  "mainClass": "dev.janheist.skinstealer.SkinStealer",
+  "description": "Steal a Skin from a Player or NPC!",
+  "version": 1,
+  "author": "Jan Heist aka. Mexykaner",
+  "category": 2,
+  "icon": "http://i.imgur.com/TiLZPzu.png"
+}
