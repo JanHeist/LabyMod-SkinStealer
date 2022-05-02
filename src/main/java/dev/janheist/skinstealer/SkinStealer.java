@@ -28,23 +28,25 @@ public class SkinStealer extends LabyModAddon {
             @Override
             public void createActions(User user, EntityPlayer entityPlayer, NetworkPlayerInfo networkPlayerInfo, List<UserActionEntry> list) {
                 if(active) {
-                    if(entityPlayer instanceof AbstractClientPlayer) {
-                        AbstractClientPlayer player = (AbstractClientPlayer) entityPlayer;
-                        String base64 = player.getGameProfile().getProperties().get("textures").iterator().next().getValue();
-                        byte[] decodedBytes = Base64.getDecoder().decode(base64);
-                        String decodedString = new String(decodedBytes);
+                    try {
+                        if (entityPlayer instanceof AbstractClientPlayer) {
+                            AbstractClientPlayer player = (AbstractClientPlayer) entityPlayer;
+                            String base64 = player.getGameProfile().getProperties().get("textures").iterator().next().getValue();
+                            byte[] decodedBytes = Base64.getDecoder().decode(base64);
+                            String decodedString = new String(decodedBytes);
 
-                        Gson g = new Gson();
-                        JsonObject json = g.fromJson(decodedString, JsonObject.class);
+                            Gson g = new Gson();
+                            JsonObject json = g.fromJson(decodedString, JsonObject.class);
 
-                        String profileName = json.get("profileName").getAsString();
-                        String skinUrl = json.get("textures").getAsJsonObject().get("SKIN").getAsJsonObject().get("url").getAsString();
-                        String uuid = json.get("profileId").getAsString();
+                            String profileName = json.get("profileName").getAsString();
+                            String skinUrl = json.get("textures").getAsJsonObject().get("SKIN").getAsJsonObject().get("url").getAsString();
+                            String uuid = json.get("profileId").getAsString();
 
-                        skinUrl += "?player=" + profileName + "&uuid=" + uuid;
+                            skinUrl += "?player=" + profileName + "&uuid=" + uuid;
 
-                        list.add(new UserActionEntry("§bSkinStealer", UserActionEntry.EnumActionType.OPEN_BROWSER, skinUrl, null));
-                    }
+                            list.add(new UserActionEntry("§bSkinStealer", UserActionEntry.EnumActionType.OPEN_BROWSER, skinUrl, null));
+                        }
+                    } catch (IllegalArgumentException ignored) {  }
                 }
             }
         });
