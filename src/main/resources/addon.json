@@ -4,7 +4,7 @@
   "mainClass": "dev.janheist.skinstealer.SkinStealer",
   "description": "Steal a Skin from a Player or NPC!",
   "version": 1,
-  "author": "Jan Heist aka. Mexykaner",
+  "author": "Jan Heist",
   "category": 2,
   "icon": "http://http.mexykaner.de/app/laby/skinstealer/addon-icon.png"
 }
